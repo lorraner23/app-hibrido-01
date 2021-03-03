@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "app01-3ffb9": {
+      "hosting": {
+        "app": [
+          "app01-3ffb9"
+        ]
+      }
+    }
+  }
+}
