@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
+// 1) importa dependências
+// 1) Importa dependências
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
 @Component({
   selector: 'app-view',
   templateUrl: './view.page.html',
@@ -7,9 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewPage implements OnInit {
 
-  constructor() { }
+  // 3) Atributos
+  public item: Observable<any>;
+
+  constructor(
+     // 2) Injeta dependências
+     private route: ActivatedRoute,
+     private firestore: AngularFirestore
+
+  ) { }
 
   ngOnInit() {
-  }
+        // Obtém o id da rota
+        this.route.params.subscribe(
+          (data) => {
+            if (data.id) {
+
+              // Obtém documento do database
+              this.item = this.firestore.doc<any>(`articles/${data.id}`).valueChanges();
+            }
+          }
+        );
+
+        }
 
 }
