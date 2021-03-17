@@ -3,13 +3,14 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 
-  //rota para a página inicial
+  // Rota para a página inicial
   {
     path: '',
     redirectTo: 'articles',
     pathMatch: 'full'
   },
 
+  // Rota para a página 'Artigos'
   {
     path: 'articles',
     loadChildren: () => import('./pages/articles/articles.module').then( m => m.ArticlesPageModule)
@@ -19,8 +20,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/news/news.module').then( m => m.NewsPageModule)
   },
   {
-    path: 'contacs',
-    loadChildren: () => import('./pages/contacs/contacs.module').then( m => m.ContacsPageModule)
+    path: 'contacts',
+    loadChildren: () => import('./pages/contacts/contacts.module').then( m => m.ContactsPageModule)
   },
   {
     path: 'about',
@@ -30,7 +31,8 @@ const routes: Routes = [
     path: 'view/:id',
     loadChildren: () => import('./pages/view/view.module').then( m => m.ViewPageModule)
   },
-  //página de erro 404
+
+  // Página de erro 404
   // '**' TEM QUE SER SEMPRE A ÚLTIMA ROTA
   {
     path: '**',
