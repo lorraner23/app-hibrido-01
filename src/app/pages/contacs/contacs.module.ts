@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
+import { ContactsPageRoutingModule } from './contacts-routing.module';
+import { ContactsPage } from './contacts.page';
 
-import { ContacsPageRoutingModule } from './contacs-routing.module';
-
-import { ContacsPage } from './contacs.page';
+// 1) Importa módulo de formulários reativos do Angular
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule,  
     FormsModule,
     IonicModule,
-    ContacsPageRoutingModule
+    ContactsPageRoutingModule,
+
+    // 2) Importa módulo
+    ReactiveFormsModule
   ],
-  declarations: [ContacsPage]
+  declarations: [ContactsPage]
 })
-export class ContacsPageModule {}
+export class ContactsPageModule {}
