@@ -13,36 +13,38 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  //3) Atributos
+  // 3) Atributos
 
   constructor(
 
-    //2) Injeta dependências
+    // 2) Injeta dependências
     public auth: AngularFireAuth,
     private router: Router,
-     public alert: AlertController
+    public alert: AlertController
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  // 4) método de login
+  // 4) Método de login
   login() {
-  this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-  .then(
-      (data: any) => {
+    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+
+      // Se o login funcionar
+      .then(
+        (data: any) => {
           this.feedback(data.user.displayName);
         }
+      )
 
-  )
-
-  // Se o Login falhar
-  .catch( (error) => {
-    console.log(error)
+      // Se o login falhar
+      .catch(
+        (error) => {
+          console.log(error)
+        }
+      );
   }
-  );
-  }
 
-// 5) Feeback e saida da página
+  // 5) Feeback e saida da página
   async feedback(userName: string) {
     const alert = await this.alert.create({
       header: `Olá ${userName}!`,

@@ -9,10 +9,11 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
- 
+
   constructor(
 
-    // 2) Injeta dependências
- public auth: AngularFireAuth
+    // 2) Injetar depedências
+    public auth: AngularFireAuth
   ) {}
+
 }

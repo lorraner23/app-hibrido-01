@@ -12,14 +12,13 @@ import { Router } from '@angular/router';
 export class LogoutPage implements OnInit {
 
   constructor(
-      
+
     // 2) Injeta dependências
     public auth: AngularFireAuth,
     private router: Router
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   // 3) Método de logout
   logout() {
@@ -35,4 +34,5 @@ export class LogoutPage implements OnInit {
       }
     );
   }
+
 }

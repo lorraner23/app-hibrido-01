@@ -28,29 +28,29 @@ const routes: Routes = [
   // Rota para a página 'Artigos'
   {
     path: 'articles',
-    loadChildren: () => import('./pages/articles/articles.module').then( m => m.ArticlesPageModule)
+    loadChildren: () => import('./pages/articles/articles.module').then(m => m.ArticlesPageModule)
   },
   {
     path: 'news',
-    loadChildren: () => import('./pages/news/news.module').then( m => m.NewsPageModule)
+    loadChildren: () => import('./pages/news/news.module').then(m => m.NewsPageModule)
   },
   {
     path: 'contacts',
-    loadChildren: () => import('./pages/contacts/contacts.module').then( m => m.ContactsPageModule)
+    loadChildren: () => import('./pages/contacts/contacts.module').then(m => m.ContactsPageModule)
   },
   {
     path: 'about',
-    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+    loadChildren: () => import('./pages/about/about.module').then(m => m.AboutPageModule)
   },
   {
     path: 'view/:id',
-    loadChildren: () => import('./pages/view/view.module').then( m => m.ViewPageModule),
+    loadChildren: () => import('./pages/view/view.module').then(m => m.ViewPageModule),
 
     // Só pode ser vista se logado
     canActivate: [AngularFireAuthGuard], data: { authGuardPipe: toLogin }
   },
   {
-       path: 'user/login',
+    path: 'user/login',
     loadChildren: () => import('./user/login/login.module').then(m => m.LoginPageModule),
 
     // Só pode ser vista se não logado
@@ -75,8 +75,9 @@ const routes: Routes = [
   // '**' TEM QUE SER SEMPRE A ÚLTIMA ROTA
   {
     path: '**',
-    loadChildren: () => import('./pages/e404/e404.module').then( m => m.E404PageModule)
+    loadChildren: () => import('./pages/e404/e404.module').then(m => m.E404PageModule)
   }
+
 ];
 
 @NgModule({
@@ -85,4 +86,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
